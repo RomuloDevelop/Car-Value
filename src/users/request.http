@@ -1,9 +1,29 @@
+### Who I'm I
+GET http://localhost:3000/auth/whoami
+
 ### Create a new user
 POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "abc@abc.com",
+    "email": "abc1@abc.com",
+    "password": "1234"
+}
+
+### Sign in existing user
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "abc1@abc.com",
+    "password": "1234"
+}
+
+### Sign out existing user
+POST http://localhost:3000/auth/signout
+
+{
+    "email": "abc1@abc.com",
     "password": "1234"
 }
 
