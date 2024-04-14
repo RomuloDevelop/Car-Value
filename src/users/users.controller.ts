@@ -19,6 +19,7 @@ import { UserDto } from './dtos/user.dto';
 import { AuthService } from './auth/auth.service';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
+import { UseAuthGuard } from 'src/guards/auth.guards';
 
 @Serialize(UserDto)
 @Controller('auth')
@@ -28,6 +29,7 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
+  @UseAuthGuard()
   @Get('whoami')
   whoAmI(@CurrentUser() user: User) {
     return user;
